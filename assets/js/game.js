@@ -12,17 +12,20 @@ var playerMoney = 10
 console.log(playerName, playerAttack, playerHealth);
 
 var enemyNames = ["Robotro", "Amy Android", "Robo Trumble"];
-var enemyHealth = 50;
+var enemyHealth = 9;
 var enemyAttack = 12;
 
 var fight = function(enemyName) {
+    // Repeat and Execute as long as the enemy is alive
+    while (enemyHealth>0) {
+
     // Choose to battle
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Input FIGHT or SKIP below to choose!");
 
     // If player choosed to fight then we fight
 if (promptFight === "fight"  || promptFight === "FIGHT") {
     // Alerts players to a new round
-    window.alert("The Fight Has Begun!!");
+    // window.alert("The Fight Has Begun!!");
     // Subtract the value of 'playerHealth' from the value of 'enemyHealth' and display the resulting value to update the 'enemyHealth' variable.
     enemyHealth = enemyHealth - playerAttack;
     // log the results to the console to ensure they worked
@@ -66,7 +69,10 @@ else {
     window.alert("Please pick a valid option");
 }
 }
+}
 
-for ( var i = 0; i < enemyNames.length; i++) {
-    fight(enemyNames[i]);
+for (var i = 0; i < enemyNames.length; i++) {
+    var pickedEnemyName = enemyNames[i];
+    enemyHealth = 10;
+    fight(pickedEnemyName);
 }
