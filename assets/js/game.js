@@ -1,3 +1,9 @@
+// Game States
+// "WIN" - Player robot has defeated all enemy robots
+//    * Fight all enemy robots
+//    * Defeat each enemy robot
+// "LOSE" - Player robot's health is zero or less
+
 var playerName = window.prompt("Name your Champion!");
 var playerHealth = 100
 var playerAttack = 10
@@ -5,11 +11,11 @@ var playerMoney = 10
 
 console.log(playerName, playerAttack, playerHealth);
 
-var enemyName = "Robotro";
+var enemyNames = ["Robotro", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function() {
+var fight = function(enemyName) {
     // Choose to battle
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Input FIGHT or SKIP below to choose!");
 
@@ -40,7 +46,7 @@ if (promptFight === "fight"  || promptFight === "FIGHT") {
     if (playerHealth <= 0) {
         window.alert(playerName + " has perished on the field of battle!")
     }
-    else {window.alert(playerName + " lives to battle again!")};
+    else {window.alert(playerName +" still has " + playerHealth + " health left.")};
 }
 else if (promptFight === "skip" || promptFight === "SKIP") {
     // confirm user wants to skip
@@ -61,4 +67,6 @@ else {
 }
 }
 
-fight();
+for ( var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}
