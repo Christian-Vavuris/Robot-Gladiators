@@ -6,7 +6,7 @@
 
 var fight = function(enemy) {
     // Repeat and Execute as long as the enemy is alive
-    while (enemy.ealth>0 && playerInfo.health > 0) {
+    while (enemy.health>0 && playerInfo.health > 0) {
     // Choose to battle
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Input FIGHT or SKIP below to choose!");
     // if user picks "skip" confirm and then stop the loop
@@ -132,8 +132,20 @@ var randomNumber = function (max, min) {
     return value;
 }
 
+// Set name Function
+var getPlayerName = function() {
+    var name = ""
+
+    while (name === "" || name === null) {
+        name = prompt("What is your Robot's Name?");
+    }
+
+    console.log("Your robot's name is " + name);
+    return name;
+};
+
 var playerInfo =  {
-    name: window.prompt("Name your Champion!"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
